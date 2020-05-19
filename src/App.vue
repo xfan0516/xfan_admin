@@ -5,6 +5,7 @@
 </template>
 
 <style lang="scss">
+
 #app {
   height: 100%;
   font-family: Avenir, Helvetica, Arial, sans-serif;

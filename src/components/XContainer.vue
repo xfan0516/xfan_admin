@@ -1,6 +1,6 @@
 <template>
   <div class="x-container">
-    <h1>{{ msg }}</h1>
+    <slot></slot>
   </div>
 </template>
 <script>

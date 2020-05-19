@@ -3,6 +3,7 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 import xfanMdmin from '@/components/index.js'
+import '@/assets/css/index.scss'
 Vue.config.productionTip = false
 
 Vue.use(xfanMdmin)

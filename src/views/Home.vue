@@ -3,7 +3,9 @@
     <x-header />
       <x-layout>
         <x-menu />
-        <x-container />
+        <x-container>
+          <x-icon type="ios-home" size="big" />
+        </x-container>
       </x-layout>
   </div>
 </template>
