@@ -24,6 +24,8 @@ export default {
   .logo {
     width: 240px;
     line-height: 60px;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.1);
   }
 }
 </style>

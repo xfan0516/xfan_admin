@@ -59,11 +59,11 @@ export default {
       return style
     },
     className () {
-      var arr = ['x-icon']
+      var arr = ['x_icon']
       if (this.size === 'small' || this.size === 'big') {
         arr.push(`${arr[0]}-${this.size}`)
-        arr.push(`${arr[0]}-${this.type}`)
       }
+      arr.push(`${arr[0]}-${this.type}`)
       return arr.join(' ')
     }
   },
@@ -78,26 +78,29 @@ export default {
 };
 </script>
 <style lang="scss">
-.x-icon {
+$icon-default: 32px;
+@mixin iconSize($num) {
+  width: $icon-default + $num;
+  height: $icon-default + $num;
+  line-height: $icon-default + $num;
+  font-size: $icon-default + $num;
+  border-radius: ($icon-default + $num) * 0.1;
+}
+
+.x_icon {
   position: relative;
   display: inline-block;
-  width: 32px;
-  height: 32px;
-  line-height: 1em;
-  font-size: 32px;
+  @include iconSize(0);
+  font-size: $icon-default;
   color: $color-primary;
-  vertical-align: middle;
+  vertical-align: baseline;
 
   &-small {
-    width: 24px;
-    height: 24px;
-    font-size: 24px;
+    @include iconSize(-8)
   }
 
   &-big {
-    width: 40px;
-    height: 40px;
-    font-size: 40px;
+    @include iconSize(8)
   }
 }
 </style>

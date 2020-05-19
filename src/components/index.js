@@ -3,13 +3,15 @@ import XLayout from './XLayout/index.vue'
 import XMenu from './XLayout/XMenu.vue'
 import XContainer from './XContainer.vue'
 import XIcon from './XIcon.vue'
+import XButton from './XButton.vue'
 
 const components = {
   XHeader,
   XLayout,
   XMenu,
   XContainer,
-  XIcon
+  XIcon,
+  XButton
 }
 
 const install = function (Vue) {
