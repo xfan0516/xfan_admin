@@ -4,11 +4,13 @@ import XMenu from './XLayout/XMenu.vue'
 import XContainer from './XContainer.vue'
 import XIcon from './XIcon.vue'
 import XButton from './XButton.vue'
+import XMenuItem from './XLayout/XMenuItem.vue'
 
 const components = {
   XHeader,
   XLayout,
   XMenu,
+  XMenuItem,
   XContainer,
   XIcon,
   XButton

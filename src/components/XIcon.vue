@@ -21,7 +21,7 @@ export default {
   computed: {
     style () {
       let style = {}
-      if (this.size && (this.size !== 'small' || this.size !== 'big')) {
+      if (this.size && (this.size !== 'small' && this.size !== 'big')) {
         style['font-size'] = this.size
         style['width'] = this.size
         style['height'] = this.size

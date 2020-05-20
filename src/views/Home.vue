@@ -2,7 +2,15 @@
   <div class="home">
     <x-header />
       <x-layout>
-        <x-menu />
+        <x-menu>
+          <x-menu-item
+            v-for="item in treeList"
+            :key="item.id"
+            :items="item"
+            :open-key="openKey"
+            @onChange="onMenuItem"
+          />
+        </x-menu>
         <x-container>
             <div class="item-c">
               <span class="labrl">图标：</span>
@@ -30,7 +38,59 @@
 <script>
 
 export default {
-  name: 'Home'
+  name: 'Home',
+  data () {
+    return {
+      openKey: '20',
+      treeList: [
+        {
+          id: '10',
+          text: '基础组件',
+          icon: 'md-apps',
+          link: '',
+          children: [
+            {
+              id: '10-10',
+              text: '按钮',
+              icon: '',
+              link: '',
+            },
+            {
+              id: '10-20',
+              text: 'icon',
+              icon: '',
+            }
+          ]
+        },
+        {
+          id: '20',
+          text: '表单组件',
+          icon: 'md-checkbox',
+          link: '',
+          children: [
+            {
+              id: '20-10',
+              text: '输入框',
+              icon: '',
+              link: '',
+            },
+            {
+              id: '20-20',
+              text: '选择器',
+              icon: '',
+              link: '',
+            }
+          ]
+        }
+      ]
+    }
+  },
+  methods: {
+    onMenuItem (obj) {
+      console.log(obj)
+      this.openKey = obj
+    }
+  }
 }
 </script>
 <style lang="scss">
