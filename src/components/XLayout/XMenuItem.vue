@@ -102,16 +102,17 @@ export default {
 
   .sid-title {
     cursor: pointer;
+    color: rgba(255, 255, 255, 0.4);
+
+
+    &:hover {
+      color: $color-primary;
+    }
   }
 
 
   .x_icon {
     padding-right: 8px;
-
-
-    &:hover {
-      color: #0e979e;
-    }
   }
 
   span {

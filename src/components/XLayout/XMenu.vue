@@ -24,7 +24,7 @@ export default {
 
   .sid-active {
     background: #333f49;
-    color: #fff;
+    color: rgba(255, 255, 255, 1) !important;
     border-right: 4px solid $color-primary;
   }
 
