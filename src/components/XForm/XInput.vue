@@ -4,6 +4,7 @@
       class="x_input-inner"
       :type="type"
       :name="name"
+      ref="input"
       :value="value"
       :placeholder="placeholder"
       @input="onInput"
@@ -13,6 +14,7 @@
 <script>
 export default {
   name: 'x-input',
+  inheritAttrs: false,
   props: {
     value: [String, Number],
     size: String,
@@ -27,6 +29,13 @@ export default {
     name: {
       type: String,
       default: ''
+    },
+    propF: {
+      type: String,
+      validator (value) {
+        console.log(value)
+        return ['success', 'warning', 'danger'].indexOf(value) !== -1
+      }
     }
   },
   data () {
@@ -34,20 +43,20 @@ export default {
       msg: '这是 x_input 组件'
     }
   },
+  methods: {
+    onInput (e) {
+      this.$emit('input', e.target.value)
+    }
+  },
   computed: {
     className () {
       let className = ['x_input']
           className.push
       this.size
-      return
+      return className
     },
     vAttr () {
 
-    }
-  },
-  methods: {
-    onInput (e) {
-      this.$emit('input', e.target.value)
     }
   }
 }
@@ -57,10 +66,15 @@ export default {
   height: inherit;
 
   input {
-    height: 28px;
+    box-sizing: border-box;
+    height: inherit;
     padding: 0 10px;
-    border: 1px solid #999;
+    border: 1px solid #ddd;
     border-radius: 5px;
+
+    &:hover {
+      border-color: #ccc;
+    }
   }
 }
 </style>

@@ -1,5 +1,5 @@
 <template>
-  <div class="x_form_item">
+  <div :class="className">
     <label class="x_form_item-label" v-bind="labelVattr"> {{ label }}</label>
     <div class="x_form_item-content">
       <slot />
@@ -11,7 +11,11 @@ export default {
   name: 'x-form-item',
   props: {
     label: String,
-    labelWidth: [String, Number]
+    labelWidth: [String, Number],
+    size: {
+      type: String,
+      default: 'moddle'
+    }
   },
   data () {
     return {
@@ -21,36 +25,59 @@ export default {
   computed: {
     labelVattr () {
       let obj = {}
-        obj.style = {}
-        obj.style.width = this.labelWidth
+      obj.style = {}
+      obj.style.width = this.labelWidth
       return obj
     },
     contentVattr () {
       let obj = {}
-        obj.style = {}
-        obj.style.width = this.labelWidth
+      obj.style = {}
+      obj.style.width = this.labelWidth
       return obj
     },
     className () {
-      var className = ['x_input'];
-          className.push(this.size)
-      
+      var className = ['x_form_item']
+      className.push(`${className[0]}-${this.size}`)
       return className
-    },
+    }
   }
 }
 </script>
 <style lang="scss">
-.x_form_item {
-  height: 32px;
-  line-height: 32px;
+$btn-default: 40px;
+@mixin formSize($num) {
+  height: $btn-default + $num;
+  margin-bottom: 24px;
+  font-size: 14px;
+  line-height: $btn-default + $num;
   text-align: left;
+}
+
+.x_form_item {
+  @include formSize(0);
+
+  &-small {
+    @include formSize(-8);
+  }
+
+  &-moddle {
+    @include formSize(0);
+  }
+
+  &-big {
+    @include formSize(8);
+  }
 
   .x_form_item-label, .x_form_item-content {
-    height: inherit;
-    line-height: inherit;
     display: inline-block;
-    padding: 5px;
+    height: inherit;
+    padding: 0;
+    line-height: inherit;
+  }
+
+  .x_form_item-label {
+    padding: 0 10px 0 0;
+    text-align: right;
   }
 
   .x_form_item-content {
