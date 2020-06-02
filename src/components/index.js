@@ -5,6 +5,10 @@ import XContainer from './XContainer.vue'
 import XIcon from './XIcon.vue'
 import XButton from './XButton.vue'
 import XMenuItem from './XLayout/XMenuItem.vue'
+import XForm from './XForm/XForm.vue'
+import XFormItem from './XForm/XFormItem.vue'
+import XInput from './XForm/XInput.vue'
+
 
 const components = {
   XHeader,
@@ -13,7 +17,10 @@ const components = {
   XMenuItem,
   XContainer,
   XIcon,
-  XButton
+  XButton,
+  XForm,
+  XFormItem,
+  XInput
 }
 
 const install = function (Vue) {
